@@ -1,10 +1,10 @@
 ﻿using Drinks_Menu.Controller;
 using Drinks_Menu.Model;
+using Drinks_Menu.View;
 
 using var drinks = new DrinksController();
 
-var categories = await drinks.ListCategories();
+var menu = new MainMenu(drinks);
 
-foreach (var category in categories ?? Enumerable.Empty<Category>())
-    Console.WriteLine(category);
+await menu.RunMenuAsync();
     

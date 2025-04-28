@@ -7,6 +7,7 @@ namespace Drinks_Menu.View;
 public class MainMenu(DrinksController controller)
 {
     private readonly Dictionary<string, Category> _categories = new();
+    private readonly Dictionary<Category, CategoryMenu> _categoryMenus = new();
     
     public async Task RunMenuAsync()
     {
@@ -26,6 +27,8 @@ public class MainMenu(DrinksController controller)
             
             if (category == null)
                 return;
+            
+            await _categoryMenus[category].RunMenuAsync();
         }
     }
 
@@ -36,7 +39,11 @@ public class MainMenu(DrinksController controller)
         if (categories == null)
             throw new Exception("Category list returned null");
         
-        categories.ForEach(c => _categories.Add(c.Name, c));
+        categories.ForEach(c =>
+        {
+            _categories.Add(c.Name, c);
+            _categoryMenus.Add(c, new CategoryMenu(controller, c));
+        });
     }
 
     private Category? GetCategory()

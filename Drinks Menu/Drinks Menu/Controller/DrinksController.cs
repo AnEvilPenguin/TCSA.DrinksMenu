@@ -19,6 +19,29 @@ public class DrinksController : IDisposable
         return categories?.Categories;
     }
 
+    public async Task<List<DrinkId>?> ListDrinks(Category category)
+    {
+        await using Stream stream = await _client.GetStreamAsync($"filter.php?c={category.Name.Replace(" ", "_")}");
+        
+        var drinkIds = await JsonSerializer.DeserializeAsync<DrinkIdList>(stream);
+        
+        return drinkIds?.Drinks;
+    }
+
+    public async Task<Drink?> GetDrink(string drinkId)
+    {
+        await using Stream stream = await _client.GetStreamAsync($"lookup.php?i={drinkId}");
+        
+        var drinks = await JsonSerializer.DeserializeAsync<DrinkList>(stream);
+        
+        var record = drinks?.Drinks.FirstOrDefault();
+        
+        if (record == null)
+            throw new Exception($"Failed to find drink: {drinkId}");
+        
+        return new Drink(record);
+    }
+
     public void Dispose()
     {
         _client.Dispose();

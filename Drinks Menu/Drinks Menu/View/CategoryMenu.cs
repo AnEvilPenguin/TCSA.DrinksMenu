@@ -19,6 +19,8 @@ public class CategoryMenu (DrinksController controller, Category category)
             
             if (drink == null)
                 return;
+            
+            DrinkView.Show(drink);
         }
     }
 
@@ -36,7 +38,7 @@ public class CategoryMenu (DrinksController controller, Category category)
     {
         var choice = AnsiConsole.Prompt(
             new SelectionPrompt<string>()
-                .Title("Choose category:")
+                .Title($"Category: [green]{category.Name}[/] | Choose drink:")
                 .AddChoices(_idMap.Keys.Union(["Back"])));
         
         if (choice.Equals("Back"))

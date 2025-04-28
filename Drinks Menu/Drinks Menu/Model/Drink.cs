@@ -8,8 +8,7 @@ public class Drink
     public bool IsAlcoholic { get; init; }
     public string Glass { get; init; }
     public string Instructions { get; init; }
-    public List<string> Ingredients { get; init; }
-    public List<string> Measures { get; init; }
+    public List<Tuple<string, string>> Ingredients { get; init; }
     public DateTime DateModified { get; init; }
     
     public Drink(DrinkRecord record)
@@ -20,44 +19,26 @@ public class Drink
         IsAlcoholic = record.Alcoholic == "Alcoholic";
         Glass = record.Glass;
         Instructions = record.Instructions;
-        DateModified = DateTime.Parse(record.DateModified);
+        if (record.DateModified != null)
+            DateModified = DateTime.Parse(record.DateModified);
         
-        Ingredients = ((List<string>)[
-            record.Ingredient1,
-            record.Ingredient2,
-            record.Ingredient3,
-            record.Ingredient4,
-            record.Ingredient5,
-            record.Ingredient6,
-            record.Ingredient7,
-            record.Ingredient8,
-            record.Ingredient9,
-            record.Ingredient10,
-            record.Ingredient11,
-            record.Ingredient12,
-            record.Ingredient13,
-            record.Ingredient14,
-            record.Ingredient15
-        ]).Where(x => !string.IsNullOrEmpty(x))
-            .ToList();
-        
-        Measures =((List<string>)[
-            record.Measure1,
-            record.Measure2,
-            record.Measure3,
-            record.Measure4,
-            record.Measure5,
-            record.Measure6,
-            record.Measure7,
-            record.Measure8,
-            record.Measure9,
-            record.Measure10,
-            record.Measure11,
-            record.Measure12,
-            record.Measure13,
-            record.Measure14,
-            record.Measure15
-        ]).Where(x => !string.IsNullOrEmpty(x))
+        Ingredients = ((List<Tuple<string, string>>)[
+            new Tuple<string, string>(record.Ingredient1, record.Measure1),
+            new Tuple<string, string>(record.Ingredient2, record.Measure2),
+            new Tuple<string, string>(record.Ingredient3, record.Measure3),
+            new Tuple<string, string>(record.Ingredient4, record.Measure4),
+            new Tuple<string, string>(record.Ingredient5, record.Measure5),
+            new Tuple<string, string>(record.Ingredient6, record.Measure6),
+            new Tuple<string, string>(record.Ingredient7, record.Measure7),
+            new Tuple<string, string>(record.Ingredient8, record.Measure8),
+            new Tuple<string, string>(record.Ingredient9, record.Measure9),
+            new Tuple<string, string>(record.Ingredient10, record.Measure10),
+            new Tuple<string, string>(record.Ingredient11, record.Measure11),
+            new Tuple<string, string>(record.Ingredient12, record.Measure12),
+            new Tuple<string, string>(record.Ingredient13, record.Measure13),
+            new Tuple<string, string>(record.Ingredient14, record.Measure14),
+            new Tuple<string, string>(record.Ingredient15, record.Measure15)
+        ]).Where(x => !string.IsNullOrEmpty(x.Item1))
             .ToList();
     }
 }

@@ -4,33 +4,62 @@ I've been hired by a fictitious restaurant to create a small app for them to loo
 
 # How to use
 
-TODO
+On opening the application the user will be presented with a list of categories of drinks to choose from:
+
+![Image](Docs/MainMenu.png)
+
+Use the arrow keys to navigate up and down the list. Press Enter to select the category you would like to view drinks 
+from.  
+From the category menu, navigate through the list again and then choose the drink to view:
+
+![Image](Docs/DrinksMenu.png)
+
+![Image](Docs/Drink1.png)
+
+![Image](Docs/Drink2.png)
+
+![Image](Docs/Drink3.png)
+
+From any menu you will be given the option to go back (or exit):
+
+![Image](Docs/MainMenu_Exit.png)
 
 # Requirements
 
-- [ ] Create a system the allows an employee to pull data from any available drink
-- [ ] Drinks are all provided by an external company
-  - [ ] All data about drinks will be provided via a REST API: [The Cocktail DB](https://www.thecocktaildb.com/api.php)
-- [ ] Users should be presented with a drinks category menu and invited to choose a category
-- [ ] They will then have the opportunity to choose a drink and see information about it
-- [ ] When shown a drink, there shouldn't be any properties with empty values
+- [X] Create a system the allows an employee to pull data from any available drink
+- [X] Drinks are all provided by an external company
+  - [X] All data about drinks will be provided via a REST API: [The Cocktail DB](https://www.thecocktaildb.com/api.php)
+- [X] Users should be presented with a drinks category menu and invited to choose a category
+- [X] They will then have the opportunity to choose a drink and see information about it
+- [X] When shown a drink, there shouldn't be any properties with empty values
+
+## Stretch Goals
+
+This project is well defined, but without much room to maneuver.  
+Any stretch goals I've thought up would unfortunately likely compromise the few requirements given.
 
 # Features
 
-TODO
+This console application allows a user to select from different drinks categories, and then from a list of drinks within
+the category. Once a drink has been accessed, this is then cached until the application exits.
 
 # Challenges
 
-What went wrong, what things were difficult, how did you grow as a person?
+No real challenges here to be honest.  
+The only issue I ran into is that having come from primarily Dynamic languages in the past, the shape of the API was a 
+touch annoying to work with (where in the dynamic languages you can just dig straight through properties you're not 
+interested in).
 
 # Lessons Learned
 
-- Learn some things and stuff
+- Was good to see how C# handles HTTP requests.
 
 # Areas to Improve
 
-- What things could you explore in a new project?
+- Per the challenge above, perhaps Anonymous or Expando Objects may help with the digging...
 
 # Resources Used
 
 - Microsoft Documentation [HTTP Requests](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/console-webapiclient)
+- [The Cocktail DB](https://www.thecocktaildb.com)
+- [Spectre.Console](https://spectreconsole.net)

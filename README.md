@@ -33,4 +33,4 @@ What went wrong, what things were difficult, how did you grow as a person?
 
 # Resources Used
 
-- A list of things
+- Microsoft Documentation [HTTP Requests](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/console-webapiclient)

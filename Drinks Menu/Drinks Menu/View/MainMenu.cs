@@ -11,6 +11,8 @@ public class MainMenu(DrinksController controller)
     
     public async Task RunMenuAsync()
     {
+        AnsiConsole.Clear();
+        
         try
         {
             await BuildCategoryMap();
@@ -50,7 +52,7 @@ public class MainMenu(DrinksController controller)
     {
         var choice = AnsiConsole.Prompt(
             new SelectionPrompt<string>()
-                .Title("Choose category:")
+                .Title("Choose [green]category[/]:")
                 .AddChoices(_categories.Keys.Union(["Exit"])));
         
         return _categories.GetValueOrDefault(choice);

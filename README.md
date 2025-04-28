@@ -1,5 +1,6 @@
-# TCSA-Template
-A template repo for The C Sharp Academy work
+# TCSA.DrinksMenu
+
+I've been hired by a fictitious restaurant to create a small app for them to look up drinks with.
 
 # How to use
 
@@ -7,11 +8,12 @@ TODO
 
 # Requirements
 
-- [ ] Get requirements from site
-
-## Stretch Goals
-
-- [ ] Stretch goals from site or self
+- [ ] Create a system the allows an employee to pull data from any available drink
+- [ ] Drinks are all provided by an external company
+  - [ ] All data about drinks will be provided via a REST API: [The Cocktail DB](https://www.thecocktaildb.com/api.php)
+- [ ] Users should be presented with a drinks category menu and invited to choose a category
+- [ ] They will then have the opportunity to choose a drink and see information about it
+- [ ] When shown a drink, there shouldn't be any properties with empty values
 
 # Features
 

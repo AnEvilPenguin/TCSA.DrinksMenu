@@ -57,6 +57,12 @@ interested in).
 # Areas to Improve
 
 - Per the challenge above, perhaps Anonymous or Expando Objects may help with the digging...
+- Error handling
+  - The API used here doesn't really go into what errors it can generate and under what conditions So I didn't really
+do any error handling
+  - Propert handling of Auth errors, rate limiting, etc. would be good to look into
+- Configuration, we're just using a test API key here. In the real world we'd want some sort of configuration to
+allow the user to set this
 
 # Resources Used
 
